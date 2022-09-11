@@ -1,0 +1,14 @@
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        l1 = []
+        l2 = []
+        if len(s)!= len(t):
+            return False
+        
+        for i in range(len(s)):
+            l1.append(s.index(s[i]))
+            l2.append(t.index(t[i]))
+        if l1 == l2:
+            return True
+        else:
+            return False
