@@ -1,0 +1,17 @@
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        m, n = len(grid), len(grid[0])
+        DIR = [0, 1, 0, -1, 0]
+        
+        def dfs(r, c):
+            if r < 0 or r == m or c < 0 or c == n or grid[r][c] == "0": return 0
+            grid[r][c] = "0"  # Mark as visited
+            for i in range(4):
+                dfs(r + DIR[i], c + DIR[i+1])
+            return 1
+        
+        ans = 0
+        for r in range(m):
+            for c in range(n):
+                ans += dfs(r, c)
+        return ans
